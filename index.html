@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07110e">
+  <title>Knowledge Point EduHub | Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo-box">
+          <img src="logo.png" alt="Knowledge Point EduHub Logo" class="brand-logo"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <span class="logo-placeholder" style="display:none;">KPEH</span>
+        </div>
+        <div>
+          <h1>Knowledge Point <span>EduHub</span></h1>
+          <p>Where Knowledge Meets Excellence</p>
+        </div>
+      </div>
+      <button id="themeToggle" class="quiet-btn" type="button" aria-label="Toggle theme">☀ Light mode</button>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">SMART CALCULATOR</p>
+        <h2>Calculate with clarity.</h2>
+        <p class="hero-copy">Everyday arithmetic, scientific functions, and understandable maths steps.</p>
+      </div>
+      <div class="hero-mark" aria-hidden="true">∑</div>
+    </section>
+
+    <section class="calculator card">
+      <nav class="mode-tabs" aria-label="Calculator modes">
+        <button class="tab active" data-tab="basic" type="button">Basic</button>
+        <button class="tab" data-tab="scientific" type="button">Scientific</button>
+        <button class="tab" data-tab="history" type="button">History</button>
+      </nav>
+
+      <div id="calculatorPanel">
+        <div class="angle-row">
+          <span>Angle unit</span>
+          <div class="angle-toggle">
+            <button id="degBtn" class="angle-btn active" type="button">DEG</button>
+            <button id="radBtn" class="angle-btn" type="button">RAD</button>
+          </div>
+        </div>
+
+        <div class="display">
+          <label for="expression">Expression</label>
+          <input id="expression" type="text" autocomplete="off" spellcheck="false"
+                 placeholder="Try (2 + 3) × 4" aria-label="Math expression">
+          <div class="answer-line">
+            <span>Answer</span>
+            <output id="answer" aria-live="polite">0</output>
+          </div>
+          <p id="errorMessage" class="error-message" role="status"></p>
+        </div>
+
+        <div id="basicKeys" class="keypad">
+          <button data-insert="(">(</button><button data-insert=")">)</button>
+          <button data-action="delete" class="utility">DEL</button><button data-action="clear" class="utility">AC</button>
+          <button data-insert="7">7</button><button data-insert="8">8</button><button data-insert="9">9</button><button data-insert="/" class="operator">÷</button>
+          <button data-insert="4">4</button><button data-insert="5">5</button><button data-insert="6">6</button><button data-insert="*" class="operator">×</button>
+          <button data-insert="1">1</button><button data-insert="2">2</button><button data-insert="3">3</button><button data-insert="-" class="operator">−</button>
+          <button data-insert="0" class="zero">0</button><button data-insert=".">.</button><button data-insert="+" class="operator">+</button>
+          <button data-action="calculate" class="equals">Calculate =</button>
+        </div>
+
+        <div id="scientificKeys" class="keypad scientific-keypad hidden">
+          <button data-insert="sin(">sin</button><button data-insert="cos(">cos</button><button data-insert="tan(">tan</button><button data-insert="sqrt(">√</button>
+          <button data-insert="asin(">sin⁻¹</button><button data-insert="acos(">cos⁻¹</button><button data-insert="atan(">tan⁻¹</button><button data-insert="cbrt(">∛</button>
+          <button data-insert="log(">log</button><button data-insert="ln(">ln</button><button data-insert="abs(">abs</button><button data-insert="exp(">eˣ</button>
+          <button data-insert="pi">π</button><button data-insert="e">e</button><button data-insert="^">xʸ</button><button data-insert="!">x!</button>
+          <button data-insert="%">%</button><button data-insert="inv(">1/x</button><button data-insert="*">×</button><button data-insert="/">÷</button>
+        </div>
+
+        <div class="action-row">
+          <button id="copyAnswer" class="secondary-btn" type="button">Copy answer</button>
+          <button id="saveHistory" class="secondary-btn" type="button">Save to history</button>
+        </div>
+
+        <section id="stepsPanel" class="steps-panel">
+          <div class="section-heading">
+            <div><p class="eyebrow">LEARN AS YOU CALCULATE</p><h3>Step-by-step solution</h3></div>
+            <span class="step-badge">MATHS</span>
+          </div>
+          <p id="stepsIntro" class="steps-intro">Enter a maths expression and press Calculate to see the working.</p>
+          <ol id="stepsList" class="steps-list"></ol>
+        </section>
+      </div>
+
+      <section id="historyPanel" class="history-panel hidden">
+        <div class="section-heading"><div><p class="eyebrow">YOUR RECENT WORK</p><h3>Calculation history</h3></div>
+          <button id="clearHistory" class="quiet-btn" type="button">Clear history</button>
+        </div>
+        <ul id="historyList" class="history-list"></ul>
+        <p id="emptyHistory" class="muted">Your saved calculations will appear here.</p>
+      </section>
+    </section>
+
+    <section class="feature-grid">
+      <article class="feature-card"><span>01</span><h3>Understand the method</h3><p>See the order of operations and intermediate results.</p></article>
+      <article class="feature-card"><span>02</span><h3>Scientific tools</h3><p>Use powers, roots, logarithms, and trigonometry.</p></article>
+      <article class="feature-card"><span>03</span><h3>Keep your work</h3><p>Save calculations in your browser's local history.</p></article>
+    </section>
+
+    <footer><span>Knowledge Point EduHub</span><span>Where Knowledge Meets Excellence</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
